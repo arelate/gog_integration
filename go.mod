@@ -1,4 +1,4 @@
-module github.com/arelate/gog-integration
+module github.com/arelate/gog_integration
 
 go 1.17
 
