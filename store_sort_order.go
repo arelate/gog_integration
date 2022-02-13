@@ -1,4 +1,4 @@
-package gog_atu
+package gog_integration
 
 type StoreSortOrder string
 

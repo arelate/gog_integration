@@ -1,4 +1,4 @@
-package gog_atu
+package gog_integration
 
 const (
 	windows = "windows"

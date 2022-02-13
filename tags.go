@@ -1,4 +1,4 @@
-package gog_atu
+package gog_integration
 
 type CreateTagResp struct {
 	Id string `json:"id"`

@@ -1,4 +1,4 @@
-package gog_atu
+package gog_integration
 
 func getTagIds(atg accountTagsGetter) []string {
 	at := atg.getAccountTags()

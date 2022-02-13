@@ -2,7 +2,7 @@
 // Use of this source code is governed by an MIT-style license that can be
 // found in the LICENSE file.
 
-package gog_atu
+package gog_integration
 
 type Media int
 
@@ -34,7 +34,7 @@ func ParseMedia(media string) Media {
 	return Unknown
 }
 
-func ValidMedia(mt Media) bool {
+func IsValidMedia(mt Media) bool {
 	for media, _ := range mediaStrings {
 		if media == mt && media != Unknown {
 			return true
