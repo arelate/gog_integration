@@ -24,26 +24,6 @@ type ImageGetter interface {
 	GetImage() string
 }
 
-type BoxArtGetter interface {
-	GetBoxArt() string
-}
-
-type LogoGetter interface {
-	GetLogo() string
-}
-
-type IconGetter interface {
-	GetIcon() string
-}
-
-type BackgroundGetter interface {
-	GetBackground() string
-}
-
-type GalaxyBackgroundGetter interface {
-	GetGalaxyBackground() string
-}
-
 type ScreenshotsGetter interface {
 	GetScreenshots() []string
 }

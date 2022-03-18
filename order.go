@@ -57,8 +57,6 @@ type Order struct {
 	StatusPageUrl string      `json:"statusPageUrl"`
 }
 
-//TODO: add relevant interfaces
-
 func (ord *Order) GetId() int {
 	//orders in theory are timestamped and you can't have two orders in the same moment,
 	//so this might work great for id and holds more semantic value than PublicId

@@ -54,10 +54,6 @@ func (det *Details) GetTitle() string {
 	return det.Title
 }
 
-func (det *Details) GetBackground() string {
-	return det.BackgroundImage
-}
-
 func (det *Details) GetFeatures() []string {
 	return det.Features
 }
@@ -85,8 +81,8 @@ func encodeDecode(rawVal interface{}, output interface{}) error {
 	return nil
 }
 
-//GetDownloads extracts downloads for languages and operating systems
-//from GOG.com details. Currently this data is stored as array of arrays,
+//GetGameDownloads extracts downloads for languages and operating systems
+//from GOG.com details. Currently, this data is stored as array of arrays,
 //where the inner array holds the language as the first element and the object
 //containing Windows, Mac, Linux downloads as the second element.
 //To process that we go through the array, save the language of the current

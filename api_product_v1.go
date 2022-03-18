@@ -116,19 +116,6 @@ func (apv1 *ApiProductV1) GetTitle() string {
 	return apv1.Title
 }
 
-func (apv1 *ApiProductV1) GetIcon() string {
-	return apv1.Images.Icon
-}
-
-// ApiProducts doesn't contain logo.
-// images.logo, images.logo2x are basically specially formatted DownloadType.Image
-//
-// func (apv1 *ApiProductV1) GetLogo() string { return "" }
-
-func (apv1 *ApiProductV1) GetBackground() string {
-	return apv1.Images.Background
-}
-
 func (apv1 *ApiProductV1) GetScreenshots() []string {
 	screenshots := make([]string, 0)
 	for _, screenshot := range apv1.Screenshots {

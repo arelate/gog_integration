@@ -236,26 +236,6 @@ func (apv2 *ApiProductV2) GetImage() string {
 	return apv2.Embedded.Product.Links.Image.Href
 }
 
-func (apv2 *ApiProductV2) GetBoxArt() string {
-	return apv2.Links.BoxArtImage.Href
-}
-
-func (apv2 *ApiProductV2) GetIcon() string {
-	return apv2.Links.Icon.Href
-}
-
-func (apv2 *ApiProductV2) GetLogo() string {
-	return apv2.Links.Logo.Href
-}
-
-func (apv2 *ApiProductV2) GetBackground() string {
-	return apv2.Links.BackgroundImage.Href
-}
-
-func (apv2 *ApiProductV2) GetGalaxyBackground() string {
-	return apv2.Links.GalaxyBackgroundImage.Href
-}
-
 func (apv2 *ApiProductV2) GetScreenshots() []string {
 	screenshots := make([]string, 0)
 	for _, screenshot := range apv2.Embedded.Screenshots {
