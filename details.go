@@ -146,3 +146,11 @@ func (det *Details) GetGOGRelease() int64 {
 	}
 	return int64(det.ReleaseTimestamp)
 }
+
+func (det *Details) GetForumUrl() string {
+	return urlPathFromLink(det.ForumLink)
+}
+
+func (det *Details) GetChangelog() string {
+	return det.Changelog
+}

@@ -365,3 +365,19 @@ func (apv2 *ApiProductV2) GetGOGRelease() int64 {
 	}
 	return gogReleaseDate
 }
+
+func (apv2 *ApiProductV2) GetStoreUrl() string {
+	return urlPathFromLink(apv2.Links.Store.Href)
+}
+
+func (apv2 *ApiProductV2) GetForumUrl() string {
+	return urlPathFromLink(apv2.Links.Forum.Href)
+}
+
+func (apv2 *ApiProductV2) GetSupportUrl() string {
+	return urlPathFromLink(apv2.Links.Support.Href)
+}
+
+func (apv2 *ApiProductV2) GetDescription() string {
+	return apv2.Description
+}

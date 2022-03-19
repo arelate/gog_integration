@@ -86,3 +86,7 @@ func (ap *AccountProduct) GetSlug() string {
 // through other types (e.g. api-products-v1/2)
 //func (ap *AccountProduct) GetGlobalRelease() int64 {
 //}
+
+func (ap *AccountProduct) GetStoreUrl() string {
+	return ap.Url
+}

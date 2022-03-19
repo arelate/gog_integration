@@ -1,6 +1,9 @@
 package gog_integration
 
-import "time"
+import (
+	"net/url"
+	"time"
+)
 import "log"
 
 type downloadFiles struct {
@@ -204,4 +207,32 @@ func (apv1 *ApiProductV1) GetGOGRelease() int64 {
 		return 0
 	}
 	return t.Unix()
+}
+
+func urlPathFromLink(link string) string {
+	if u, err := url.Parse(link); err != nil {
+		return ""
+	} else {
+		return u.Path
+	}
+}
+
+func (apv1 *ApiProductV1) GetStoreUrl() string {
+	return urlPathFromLink(apv1.Links.ProductCard)
+}
+
+func (apv1 *ApiProductV1) GetForumUrl() string {
+	return urlPathFromLink(apv1.Links.Forum)
+}
+
+func (apv1 *ApiProductV1) GetSupportUrl() string {
+	return urlPathFromLink(apv1.Links.Support)
+}
+
+func (apv1 *ApiProductV1) GetChangelog() string {
+	return apv1.Changelog
+}
+
+func (apv1 *ApiProductV1) GetDescription() string {
+	return apv1.Description.Full
 }

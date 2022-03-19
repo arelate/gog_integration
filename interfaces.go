@@ -103,3 +103,23 @@ type GlobalReleaseGetter interface {
 type GOGReleaseGetter interface {
 	GetGOGRelease() int64
 }
+
+type StoreUrlGetter interface {
+	GetStoreUrl() string
+}
+
+type ForumUrlGetter interface {
+	GetForumUrl() string
+}
+
+type SupportUrlGetter interface {
+	GetSupportUrl() string
+}
+
+type ChangelogGetter interface {
+	GetChangelog() string
+}
+
+type DescriptionGetter interface {
+	GetDescription() string
+}

@@ -147,3 +147,15 @@ func (sp *StoreProduct) GetGOGRelease() int64 {
 	}
 	return int64(sp.ReleaseDate)
 }
+
+func (sp *StoreProduct) GetStoreUrl() string {
+	return sp.Url
+}
+
+func (sp *StoreProduct) GetForumUrl() string {
+	return sp.ForumUrl
+}
+
+func (sp *StoreProduct) GetSupportUrl() string {
+	return sp.SupportUrl
+}
