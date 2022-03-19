@@ -179,13 +179,14 @@ type ApiProductV2 struct {
 	InDevelopment struct {
 		Active bool `json:"active"`
 	} `json:"inDevelopment"`
-	Copyrights    string `json:"copyrights"`
-	IsUsingDosBox bool   `json:"isUsingDosBox"`
-	Description   string `json:"description"`
-	Size          int    `json:"size"`
-	Overview      string `json:"overview"`
-	Links         links  `json:"_links"`
-	Embedded      struct {
+	Copyrights          string `json:"copyrights"`
+	IsUsingDosBox       bool   `json:"isUsingDosBox"`
+	Description         string `json:"description"`
+	Size                int    `json:"size"`
+	Overview            string `json:"overview"`
+	FeaturesDescription string `json:"featuresDescription"`
+	Links               links  `json:"_links"`
+	Embedded            struct {
 		Product                   product                    `json:"product"`
 		ProductType               string                     `json:"productType"`
 		Localizations             []localization             `json:"localizations"`
@@ -379,5 +380,9 @@ func (apv2 *ApiProductV2) GetSupportUrl() string {
 }
 
 func (apv2 *ApiProductV2) GetDescription() string {
-	return apv2.Description
+	if apv2.Description != "" {
+		return apv2.Description
+	} else {
+		return apv2.Overview + apv2.FeaturesDescription
+	}
 }
