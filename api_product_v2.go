@@ -386,3 +386,7 @@ func (apv2 *ApiProductV2) GetDescription() string {
 		return apv2.Overview + apv2.FeaturesDescription
 	}
 }
+
+func (apv2 *ApiProductV2) GetProductType() string {
+	return apv2.Embedded.ProductType
+}

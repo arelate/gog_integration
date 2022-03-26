@@ -123,3 +123,7 @@ type ChangelogGetter interface {
 type DescriptionGetter interface {
 	GetDescription() string
 }
+
+type ProductTypeGetter interface {
+	GetProductType() string
+}
