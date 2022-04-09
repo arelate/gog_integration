@@ -387,6 +387,10 @@ func (apv2 *ApiProductV2) GetDescription() string {
 	}
 }
 
+func (apv2 *ApiProductV2) GetDescriptionItems() []string {
+	return extractDescriptionItems(apv2.GetDescription())
+}
+
 func (apv2 *ApiProductV2) GetProductType() string {
 	return apv2.Embedded.ProductType
 }

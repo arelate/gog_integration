@@ -18,6 +18,7 @@ const (
 	cdnHost       = "cdn." + GogHost
 	loginHost     = "login." + GogHost
 	authHost      = "auth." + GogHost
+	ItemsHost     = "items." + GogHost
 	reCaptchaHost = "www.recaptcha.net"
 )
 

@@ -2,6 +2,7 @@ package gog_integration
 
 import (
 	"net/url"
+	"regexp"
 	"time"
 )
 import "log"
@@ -235,4 +236,14 @@ func (apv1 *ApiProductV1) GetChangelog() string {
 
 func (apv1 *ApiProductV1) GetDescription() string {
 	return apv1.Description.Full + apv1.Description.WhatsCoolAboutIt
+}
+
+var re = regexp.MustCompile(`https://items.gog.com/([-a-zA-Z0-9()!@:%_\+.~#?&\/\/=]*)`)
+
+func extractDescriptionItems(desc string) []string {
+	return re.FindAllString(desc, -1)
+}
+
+func (apv1 *ApiProductV1) GetDescriptionItems() []string {
+	return extractDescriptionItems(apv1.GetDescription())
 }
