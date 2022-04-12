@@ -234,5 +234,5 @@ func (apv1 *ApiProductV1) GetChangelog() string {
 }
 
 func (apv1 *ApiProductV1) GetDescription() string {
-	return apv1.Description.Full + apv1.Description.WhatsCoolAboutIt
+	return apv1.Description.Full + implicitToExplicitList(apv1.Description.WhatsCoolAboutIt)
 }

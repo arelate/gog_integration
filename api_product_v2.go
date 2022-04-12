@@ -379,14 +379,38 @@ func (apv2 *ApiProductV2) GetSupportUrl() string {
 	return urlPathFromLink(apv2.Links.Support.Href)
 }
 
+const emDashCode = "\u2013"
+
+//implicitToExplicitList looks for embedded \u2013 characters
+//that GOG.com is using for <ul> lists creation, e.g.
+//https://www.gog.com/en/game/deaths_gambit
+//and replaces that segment with explicit unordered lists
+func implicitToExplicitList(text string) string {
+	if strings.Contains(text, emDashCode) {
+		builder := strings.Builder{}
+		builder.WriteString("<ul>")
+		items := strings.Split(text, emDashCode)
+		for _, item := range items {
+			builder.WriteString("<li>" + item + "</li>")
+		}
+		builder.WriteString("</ul>")
+		text = builder.String()
+	}
+	return text
+}
+
 func (apv2 *ApiProductV2) GetDescription() string {
-	if apv2.Description != "" {
-		return apv2.Description
+	if apv2.Overview != "" && apv2.FeaturesDescription != "" {
+		return apv2.Overview + implicitToExplicitList(apv2.FeaturesDescription)
 	} else {
-		return apv2.Overview + apv2.FeaturesDescription
+		return apv2.Description
 	}
 }
 
 func (apv2 *ApiProductV2) GetProductType() string {
 	return apv2.Embedded.ProductType
+}
+
+func (apv2 *ApiProductV2) GetCopyrights() string {
+	return apv2.Copyrights
 }
