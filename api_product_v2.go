@@ -380,22 +380,33 @@ func (apv2 *ApiProductV2) GetSupportUrl() string {
 }
 
 const emDashCode = "\u2013"
+const doubleNewLineChar = "\n\n"
+const newLineChar = "\n"
 
 //implicitToExplicitList looks for embedded \u2013 characters
 //that GOG.com is using for <ul> lists creation, e.g.
 //https://www.gog.com/en/game/deaths_gambit
 //and replaces that segment with explicit unordered lists
 func implicitToExplicitList(text string) string {
+	var items []string
 	if strings.Contains(text, emDashCode) {
+		items = strings.Split(text, emDashCode)
+	} else if strings.Contains(text, doubleNewLineChar) {
+		items = strings.Split(text, doubleNewLineChar)
+	} else if strings.Contains(text, newLineChar) {
+		items = strings.Split(text, newLineChar)
+	}
+
+	if len(items) > 0 {
 		builder := strings.Builder{}
 		builder.WriteString("<ul>")
-		items := strings.Split(text, emDashCode)
 		for _, item := range items {
 			builder.WriteString("<li>" + item + "</li>")
 		}
 		builder.WriteString("</ul>")
 		text = builder.String()
 	}
+
 	return text
 }
 
