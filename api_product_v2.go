@@ -14,6 +14,10 @@ type name struct {
 	Name string `json:"name"`
 }
 
+type slug struct {
+	Slug string `json:"slug"`
+}
+
 type links struct {
 	Self                  href   `json:"self"`
 	Store                 href   `json:"store"`
@@ -55,7 +59,7 @@ type edition struct {
 		name
 		Type struct {
 			name
-			Slug string `json:"slug"`
+			slug
 		} `json:"type"`
 	} `json:"bonuses"`
 	HasProductCard bool `json:"hasProductCard"`
@@ -109,8 +113,13 @@ type localization struct {
 type tag struct {
 	Id int `json:"id"`
 	name
-	Level int    `json:"level"`
-	Slug  string `json:"slug"`
+	Level int `json:"level"`
+	slug
+}
+
+type property struct {
+	name
+	slug
 }
 
 type screenshot struct {
@@ -161,7 +170,7 @@ type bonus struct {
 	name
 	Type struct {
 		name
-		Slug string `json:"slug"`
+		slug
 	} `json:"type"`
 }
 
@@ -197,6 +206,7 @@ type ApiProductV2 struct {
 		Developers                []name                     `json:"developers"`
 		SupportedOperatingSystems []supportedOperatingSystem `json:"supportedOperatingSystems"`
 		Tags                      []tag                      `json:"tags"`
+		Properties                []property                 `json:"properties"`
 		ESRBRating                esrbRating                 `json:"esrbRating"`
 		PEGIRating                pegiRating                 `json:"pegiRating"`
 		USKRating                 uskRating                  `json:"uskRating"`
@@ -424,4 +434,15 @@ func (apv2 *ApiProductV2) GetProductType() string {
 
 func (apv2 *ApiProductV2) GetCopyrights() string {
 	return apv2.Copyrights
+}
+
+//GetProperties returns values displayed in Store as "Tags".
+//Using Properties name here to be consistent with the source data
+//and given that Tags is already used for "Genres" (see GetGenres method)
+func (apv2 *ApiProductV2) GetProperties() []string {
+	properties := make([]string, 0, len(apv2.Embedded.Properties))
+	for _, p := range apv2.Embedded.Properties {
+		properties = append(properties, p.Name)
+	}
+	return properties
 }

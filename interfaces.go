@@ -131,3 +131,7 @@ type ProductTypeGetter interface {
 type CopyrightsGetter interface {
 	GetCopyrights() string
 }
+
+type PropertiesGetter interface {
+	GetProperties() []string
+}
