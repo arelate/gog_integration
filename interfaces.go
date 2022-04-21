@@ -120,8 +120,12 @@ type ChangelogGetter interface {
 	GetChangelog() string
 }
 
-type DescriptionGetter interface {
-	GetDescription() string
+type DescriptionOverviewGetter interface {
+	GetDescriptionOverview() string
+}
+
+type DescriptionFeaturesGetter interface {
+	GetDescriptionFeatures() string
 }
 
 type ProductTypeGetter interface {

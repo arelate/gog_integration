@@ -233,6 +233,10 @@ func (apv1 *ApiProductV1) GetChangelog() string {
 	return apv1.Changelog
 }
 
-func (apv1 *ApiProductV1) GetDescription() string {
-	return apv1.Description.Full + implicitToExplicitList(apv1.Description.WhatsCoolAboutIt)
+func (apv1 *ApiProductV1) GetDescriptionOverview() string {
+	return apv1.Description.Full
+}
+
+func (apv1 *ApiProductV1) GetDescriptionFeatures() string {
+	return apv1.Description.WhatsCoolAboutIt
 }

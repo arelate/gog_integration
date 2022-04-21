@@ -389,43 +389,12 @@ func (apv2 *ApiProductV2) GetSupportUrl() string {
 	return urlPathFromLink(apv2.Links.Support.Href)
 }
 
-const emDashCode = "\u2013"
-const doubleNewLineChar = "\n\n"
-const newLineChar = "\n"
-
-//implicitToExplicitList looks for embedded \u2013 characters
-//that GOG.com is using for <ul> lists creation, e.g.
-//https://www.gog.com/en/game/deaths_gambit
-//and replaces that segment with explicit unordered lists
-func implicitToExplicitList(text string) string {
-	var items []string
-	if strings.Contains(text, emDashCode) {
-		items = strings.Split(text, emDashCode)
-	} else if strings.Contains(text, doubleNewLineChar) {
-		items = strings.Split(text, doubleNewLineChar)
-	} else if strings.Contains(text, newLineChar) {
-		items = strings.Split(text, newLineChar)
-	}
-
-	if len(items) > 0 {
-		builder := strings.Builder{}
-		builder.WriteString("<ul>")
-		for _, item := range items {
-			builder.WriteString("<li>" + item + "</li>")
-		}
-		builder.WriteString("</ul>")
-		text = builder.String()
-	}
-
-	return text
+func (apv2 *ApiProductV2) GetDescriptionOverview() string {
+	return apv2.Overview
 }
 
-func (apv2 *ApiProductV2) GetDescription() string {
-	if apv2.Overview != "" && apv2.FeaturesDescription != "" {
-		return apv2.Overview + implicitToExplicitList(apv2.FeaturesDescription)
-	} else {
-		return apv2.Description
-	}
+func (apv2 *ApiProductV2) GetDescriptionFeatures() string {
+	return apv2.FeaturesDescription
 }
 
 func (apv2 *ApiProductV2) GetProductType() string {
