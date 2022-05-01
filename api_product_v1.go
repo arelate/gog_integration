@@ -240,3 +240,11 @@ func (apv1 *ApiProductV1) GetDescriptionOverview() string {
 func (apv1 *ApiProductV1) GetDescriptionFeatures() string {
 	return apv1.Description.WhatsCoolAboutIt
 }
+
+func (apv1 *ApiProductV1) GetInDevelopment() bool {
+	return apv1.InDevelopment.Active
+}
+
+func (apv1 *ApiProductV1) GetPreOrder() bool {
+	return apv1.IsPreOrder
+}

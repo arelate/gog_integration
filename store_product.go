@@ -159,3 +159,11 @@ func (sp *StoreProduct) GetForumUrl() string {
 func (sp *StoreProduct) GetSupportUrl() string {
 	return sp.SupportUrl
 }
+
+func (sp *StoreProduct) GetTBA() bool {
+	return sp.IsTBA
+}
+
+func (sp *StoreProduct) GetComingSoon() bool {
+	return sp.IsComingSoon
+}

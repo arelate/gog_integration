@@ -139,3 +139,23 @@ type CopyrightsGetter interface {
 type PropertiesGetter interface {
 	GetProperties() []string
 }
+
+type InDevelopmentGetter interface {
+	GetInDevelopment() bool
+}
+
+type PreOrderGetter interface {
+	GetPreOrder() bool
+}
+
+type TBAGetter interface {
+	GetTBA() bool
+}
+
+type ComingSoonGetter interface {
+	GetComingSoon() bool
+}
+
+type IsUsingDOSBoxGetter interface {
+	IsUsingDOSBox() bool
+}

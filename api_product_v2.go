@@ -415,3 +415,15 @@ func (apv2 *ApiProductV2) GetProperties() []string {
 	}
 	return properties
 }
+
+func (apv2 *ApiProductV2) GetInDevelopment() bool {
+	return apv2.InDevelopment.Active
+}
+
+func (apv2 *ApiProductV2) GetPreOrder() bool {
+	return apv2.Embedded.Product.IsPreorder
+}
+
+func (apv2 *ApiProductV2) IsUsingDOSBox() bool {
+	return apv2.IsUsingDosBox
+}
