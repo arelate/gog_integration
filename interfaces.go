@@ -163,3 +163,7 @@ type IsUsingDOSBoxGetter interface {
 type AdditionalRequirementsGetter interface {
 	GetAdditionalRequirements() string
 }
+
+type IsUsingScummVMGetter interface {
+	IsUsingScummVM() bool
+}

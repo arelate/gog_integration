@@ -432,3 +432,12 @@ func (apv2 *ApiProductV2) IsUsingDOSBox() bool {
 func (apv2 *ApiProductV2) GetAdditionalRequirements() string {
 	return apv2.AdditionalRequirements
 }
+
+func (apv2 *ApiProductV2) IsUsingScummVM() bool {
+	addReq := apv2.GetAdditionalRequirements()
+	if addReq == "" {
+		return false
+	} else {
+		return strings.Contains(addReq, "ScummVM")
+	}
+}
