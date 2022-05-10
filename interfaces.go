@@ -159,3 +159,7 @@ type ComingSoonGetter interface {
 type IsUsingDOSBoxGetter interface {
 	IsUsingDOSBox() bool
 }
+
+type AdditionalRequirementsGetter interface {
+	GetAdditionalRequirements() string
+}

@@ -428,3 +428,7 @@ func (apv2 *ApiProductV2) GetPreOrder() bool {
 func (apv2 *ApiProductV2) IsUsingDOSBox() bool {
 	return apv2.IsUsingDosBox
 }
+
+func (apv2 *ApiProductV2) GetAdditionalRequirements() string {
+	return apv2.AdditionalRequirements
+}
