@@ -33,11 +33,11 @@ type StoreProduct struct {
 		BonusStoreCreditAmount     string  `json:"bonusStoreCreditAmount"`
 		PromoId                    *string `json:"promoId"`
 	} `json:"price"`
-	IsDiscounted    bool `json:"isDiscounted"`
-	IsInDevelopment bool `json:"isInDevelopment"`
-	Id              int  `json:"id"`
-	ReleaseDate     int  `json:"releaseDate"`
-	Availability    struct {
+	IsDiscountedProperty bool `json:"isDiscounted"`
+	IsInDevelopment      bool `json:"isInDevelopment"`
+	Id                   int  `json:"id"`
+	ReleaseDate          int  `json:"releaseDate"`
+	Availability         struct {
 		IsAvailable          bool `json:"isAvailable"`
 		IsAvailableInAccount bool `json:"isAvailableInAccount"`
 	} `json:"availability"`
@@ -166,4 +166,24 @@ func (sp *StoreProduct) GetTBA() bool {
 
 func (sp *StoreProduct) GetComingSoon() bool {
 	return sp.IsComingSoon
+}
+
+func (sp *StoreProduct) GetBasePrice() string {
+	return sp.Price.BaseAmount
+}
+
+func (sp *StoreProduct) GetPrice() string {
+	return sp.Price.Amount
+}
+
+func (sp *StoreProduct) IsFree() bool {
+	return sp.Price.IsFree
+}
+
+func (sp *StoreProduct) IsDiscounted() bool {
+	return sp.IsDiscountedProperty
+}
+
+func (sp *StoreProduct) GetDiscountPercentage() int {
+	return sp.Price.DiscountPercentage
 }

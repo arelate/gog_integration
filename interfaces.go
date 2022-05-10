@@ -167,3 +167,23 @@ type AdditionalRequirementsGetter interface {
 type IsUsingScummVMGetter interface {
 	IsUsingScummVM() bool
 }
+
+type BasePriceGetter interface {
+	GetBasePrice() string
+}
+
+type PriceGetter interface {
+	GetPrice() string
+}
+
+type IsFreeGetter interface {
+	IsFree() bool
+}
+
+type IsDiscountedGetter interface {
+	IsDiscounted() bool
+}
+
+type DiscountPercentageGetter interface {
+	GetDiscountPercentage() int
+}
