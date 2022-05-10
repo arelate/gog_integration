@@ -188,14 +188,15 @@ type ApiProductV2 struct {
 	InDevelopment struct {
 		Active bool `json:"active"`
 	} `json:"inDevelopment"`
-	Copyrights          string `json:"copyrights"`
-	IsUsingDosBox       bool   `json:"isUsingDosBox"`
-	Description         string `json:"description"`
-	Size                int    `json:"size"`
-	Overview            string `json:"overview"`
-	FeaturesDescription string `json:"featuresDescription"`
-	Links               links  `json:"_links"`
-	Embedded            struct {
+	Copyrights             string `json:"copyrights"`
+	IsUsingDosBox          bool   `json:"isUsingDosBox"`
+	Description            string `json:"description"`
+	Size                   int    `json:"size"`
+	Overview               string `json:"overview"`
+	FeaturesDescription    string `json:"featuresDescription"`
+	AdditionalRequirements string `json:"additionalRequirements"`
+	Links                  links  `json:"_links"`
+	Embedded               struct {
 		Product                   product                    `json:"product"`
 		ProductType               string                     `json:"productType"`
 		Localizations             []localization             `json:"localizations"`
